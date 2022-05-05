@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-xl-3 col-md-6">
                 <div class="card bg-primary text-white mb-4">
-                    <div class="card-body"> Bài viết</div>
+                    <div class="card-body"> Bài đang đợi duyệt : @ViewBag.DD</div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
                         <a class="small text-white stretched-link" href="/AdminPost/Index">Xem chi tiết</a>
                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -22,31 +22,49 @@
             </div>
             <div class="col-xl-3 col-md-6">
                 <div class="card bg-warning text-white mb-4">
-                    <div class="card-body"> Người dùng</div>
+                    <div class="card-body"> Bài đang hoạt động : @ViewBag.HD</div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="/AdminClient/Index">Xem chi tiết</a>
+                        <a class="small text-white stretched-link" href="/AdminPost/Index">Xem chi tiết</a>
                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 col-md-6">
                 <div class="card bg-success text-white mb-4">
-                    <div class="card-body"> Khóa học</div>
+                    <div class="card-body"> Bài đang bị chặn : @ViewBag.BC</div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="/AdminSource/Index">Xem chi tiết</a>
+                        <a class="small text-white stretched-link" href="/AdminPost/Index">Xem chi tiết</a>
                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                     </div>
                 </div>
             </div>
-            @*<div class="col-xl-3 col-md-6">
-                    <div class="card bg-danger text-white mb-4">
-                        <div class="card-body">Tổng thu nhập : @ViewBag.SumMoney</div>
-                        <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="#">Xem chi tiết</a>
-                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                        </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-danger text-white mb-4">
+                    <div class="card-body"> TK đang đợi xác thực : @ViewBag.UXT</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="/AdminUser/Index">Xem chi tiết</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                     </div>
-                </div>*@
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-secondary text-white mb-4">
+                    <div class="card-body"> TK đang hoạt động : @ViewBag.UHD</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="/AdminUser/Index">Xem chi tiết</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-info text-white mb-4">
+                    <div class="card-body"> TK đang bị chặn : @ViewBag.UBC</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="/AdminUser/Index">Xem chi tiết</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </main>

@@ -1,0 +1,170 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<main>
+    <div class="container-fluid px-4">
+        <h4 class="mt-1">Danh sách bài đăng</h4>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                @if (ViewBag.Msg != null)
+                {
+                    if (ViewBag.Msg == "1")
+                    {
+                        <div class="alert alert-success">
+                            <strong>Thành công</strong>
+                        </div>
+                    }
+                }
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead style="color:#0d6efd ">
+                        <tr style="background-color: darkgrey">
+                            <th>STT</th>
+                            <th>Tiêu đề</th>
+                            <th>Ảnh</th>
+                            <th>Người đăng</th>
+                            <th>Giá</th>
+                            <th>Ngày đăng<h>
+                            <th>Trạng thái<h>
+                            <th>Mô tả</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @{ var stt = 1;}
+                        @foreach (var item in ViewBag.List)
+                        {
+                            var nameModelDes = "exampleModalDes" + item.postId;
+                        <tr>
+                            <td style="width:10px">@stt</td>
+                            <td>
+                                @item.title
+                            </td>
+                            <td>
+                                <img style="width: 200px !important;height: 150px !important;" src="~/Content/images/@item.image"
+                                     class="img-fluid">
+                            </td>
+                            <td>
+                                @item.User.fullName
+                            </td>
+                            <td>
+                                @string.Format("{0:0,0}", item.price) <span>VNĐ</span>
+                            </td>
+                            <td>
+                                @item.createdAt
+                            </td>
+                            @if (item.status == 0)
+                            {
+                                <td>
+                                    Đợi duyệt
+                                </td>
+                            }
+                            else if (item.status == 1)
+                            {
+
+                                <td>
+                                    Đang hoạt động
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    Bị chặn
+                                </td>
+                            }
+                            <td>
+                                <a href="" data-bs-toggle="modal" data-bs-target="#@nameModelDes">Xem</a>
+                            </td>
+                            <td>
+                                @{
+                                    var idEx1 = "exampleModalLabel" + item.postId;
+                                }
+                                <button style="width:100px" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#@idEx1">
+                                    Cập nhập
+                                </button>
+                            </td>
+                            <!-- Modal Update-->
+                            <div class="modal fade" id="@idEx1" tabindex="-1"
+                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Cập nhập trạng thái</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form method="POST" action="/AdminPost/Update" class="register-form" id="register-form">
+                                                <input type="hidden" class="form-control" id="id" name="postId" value="@item.postId">
+
+                                                <div class="mb-3">
+                                                    <label for="category-film"
+                                                           class="col-form-label">Trạng thái:</label>
+                                                    <select class="form-select" aria-label="Default select example" id="theloai" tabindex="8" name="status" required>
+                                                        @if (item.status == 0)
+                                                        {
+                                                            <option selected value="">Chọn trạng thái</option>
+                                                            <option value="1">Duyệt bài</option>
+                                                        }
+                                                        else if (item.status == 1)
+                                                        {
+                                                            <option selected value="">Chọn trạng thái</option>
+                                                            <option value="2">Chặn bài</option>
+                                                        }
+                                                        else
+                                                        {
+                                                            <option selected value="">Chọn trạng thái</option>
+                                                            <option value="1">Mở chặn bài</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">
+                                                        Đóng
+                                                    </button>
+                                                    <button type="submit" class="btn btn-primary">Lưu</button>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal Descrip-->
+                            <div class="modal fade" id="@nameModelDes" tabindex="-1"
+                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-xl">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">@item.title</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>@Html.Raw(item.description)</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </tr>
+                            stt++;
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+

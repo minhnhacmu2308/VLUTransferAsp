@@ -130,6 +130,8 @@
     <Compile Include="Controllers\Admin\AdminHomeController.cs" />
     <Compile Include="Controllers\Admin\AdminLoginController.cs" />
     <Compile Include="Controllers\Admin\AdminModulesController.cs" />
+    <Compile Include="Controllers\Admin\AdminPostController.cs" />
+    <Compile Include="Controllers\Admin\AdminUserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Daos\PostDao.cs" />
     <Compile Include="Daos\RegisterDao.cs" />
@@ -770,6 +772,7 @@
     <Content Include="Content\ckeditor\skins\moono-lisa\images\spinner.gif" />
     <Content Include="Content\ckeditor\styles.js" />
     <Content Include="Content\ckeditor\vendor\promise.js" />
+    <Content Include="Content\images\a.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -847,6 +850,8 @@
     <Content Include="Views\AdminModules\Menu.cshtml" />
     <Content Include="Views\AdminHome\Index.cshtml" />
     <Content Include="Views\AdminLogin\Index.cshtml" />
+    <Content Include="Views\AdminPost\Index.cshtml" />
+    <Content Include="Views\AdminUser\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
