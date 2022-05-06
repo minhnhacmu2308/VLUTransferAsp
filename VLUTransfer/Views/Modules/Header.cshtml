@@ -10,6 +10,7 @@
                 <div class="col-md-9 col-xs-6 text-right header-top-right ">
 
                     <span class="vertical-divider mr-20 ml-20 d-none d-md-inline"></span>
+                    <button class="search-icon d-none d-md-inline"><span class="mr-15 text-muted font-small"><i class="elegant-icon icon_search mr-5"></i>Search</span></button>
                     @if (userInfomatiom != null)
                     {
                         <div class="dropdown show">
@@ -45,7 +46,7 @@
 
                         <li> <a href="/Home/Index"><i class="elegant-icon icon_house_alt mr-5"></i>Trang chủ</a> </li>
 
-                        <li> <a href="/Forum/Index/1"><i class="elegant-icon icon_house_alt mr-5"></i>Diễn đàn</a> </li>
+                        <li> <a href="/Post/Index/1"><i class="elegant-icon icon_house_alt mr-5"></i>Bài đăng</a> </li>
 
 
                     </ul>
@@ -115,12 +116,12 @@
                 <div class="row mb-20">
 
                     <div class="col-12 align-self-center main-search-form-cover m-auto">
-                        <p class="text-center"><span class="search-text-bg">Search</span></p>
-                        <form action="#" class="search-header">
+                        <p class="text-center"><span class="search-text-bg">Tìm kiếm</span></p>
+                        <form action="/Post/Search" class="search-header" method="post">
                             <div class="input-group w-100">
-                                <input type="text" class="form-control" placeholder="Search stories, places and people">
+                                <input type="text" name="title" class="form-control" placeholder="Tìm kiếm bài đăng sản phẩm">
                                 <div class="input-group-append">
-                                    <button class="btn btn-search bg-white" type="submit">
+                                    <button class="btn btn-search bg-white" type="Search">
                                         <i class="elegant-icon icon_search"></i>
                                     </button>
                                 </div>

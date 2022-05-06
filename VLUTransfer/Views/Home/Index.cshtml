@@ -42,7 +42,7 @@
                             @foreach (var item in ViewBag.posts)
                             {
                                 <div class="position-relative post-thumb">
-                                    <div class="thumb-overlay img-hover-slide position-relative" style="background-image: url(/Content/assets/imgs/@item.image)">
+                                    <div class="thumb-overlay img-hover-slide position-relative" style="background-image: url(/Content/images/@item.image )">
                                         <a class="img-link" href="/Post/Detail/@item.postId"></a>
                                         <span class="top-left-icon bg-warning"><i class="elegant-icon icon_star_alt"></i></span>
                                         <div class="post-content-overlay text-white ml-30 mr-30 pb-30">
@@ -68,7 +68,7 @@
                 {
                     <article class="col-lg-4 col-md-6 mb-30 wow fadeInUp animated" data-wow-delay="0.2s">
                         <div class="post-card-1 border-radius-10 hover-up">
-                            <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url(/Content/assets/imgs/@item1.image)">
+                            <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url(/Content/images/@item1.image )">
                                 <a class="img-link" href="/Post/Detail/@item1.postId"></a>
                                 <span class="top-right-icon bg-success"><i class="elegant-icon icon_camera_alt"></i></span>
                                 <ul class="social-share">

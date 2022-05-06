@@ -43,5 +43,39 @@ namespace VLUTransfer.Daos
         {
             return myDb.posts.ToList();
         }
+
+        public List<Post> SearchByName(int page, int pagesize, string name)
+        {
+            return myDb.posts.Where(x => x.status ==1 &&  x.title.Contains(name)).ToList().Skip((page - 1) * pagesize).Take(pagesize).ToList();
+        }
+
+        public int GetNumberRoomByName(string name)
+        {
+            int total = myDb.posts.Where(x => x.status == 1 &&  x.title.Contains(name)).ToList().Count;
+            int count = 0;
+            count = total / 5;
+            if (total % 5 != 0)
+            {
+                count++;
+            }
+            return count;
+        }
+
+        public List<Post> GetList(int page, int pagesize)
+        {
+            return myDb.posts.Where(x => x.status == 1).ToList().Skip((page - 1) * pagesize).Take(pagesize).ToList();
+        }
+
+        public int GetNumber()
+        {
+            int total = myDb.posts.Where(x => x.status == 1).ToList().Count;
+            int count = 0;
+            count = total / 5;
+            if (total % 5 != 0)
+            {
+                count++;
+            }
+            return count;
+        }
     }
 }
