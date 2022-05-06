@@ -1,0 +1,136 @@
+﻿
+<header class="main-header header-style-1 font-heading">
+    <div class="header-top">
+        @{ var userInfomatiom = (VLUTransfer.Models.User)Session["User"]; }
+        <div class="container">
+            <div class="row pt-20 pb-20">
+                <div class="col-md-3 col-xs-6">
+                    <a href="/Home/Index"><img class="logo" src="~/Content/assets/imgs/theme/logo.png" alt=""></a>
+                </div>
+                <div class="col-md-9 col-xs-6 text-right header-top-right ">
+
+                    <span class="vertical-divider mr-20 ml-20 d-none d-md-inline"></span>
+                    @if (userInfomatiom != null)
+                    {
+                        <div class="dropdown show">
+                            <a class="btn btn-radius bg-primary text-white ml-15 font-small box-shadow dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                @userInfomatiom.email
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item text-black ml-15 font-small " href="/Authentication/GetProfile/@userInfomatiom.userId"> @userInfomatiom.email</a>
+                                <a class="dropdown-item text-black ml-15 font-small " href="/Post/AddPost">Đăng bài</a>
+                                <a class="dropdown-item text-black ml-15 font-small " href="/user/post/@userInfomatiom.userId/1">Bài viết</a>
+                            </div>
+                        </div>
+                        <a href="/Authentication/Logout" class="btn btn-radius bg-primary text-white ml-15 font-small box-shadow" style="width:100px">Đăng xuất</a>
+                    }
+                    else
+                    {
+                        <a href="/Authentication/Login" class="btn btn-radius bg-primary text-white ml-15 font-small box-shadow" style="width:100px">Đăng Nhập</a>
+                        <a href="/Authentication/Register" class="btn btn-radius bg-primary text-white ml-15 font-small box-shadow" style="width:100px">Đăng Ký</a>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-sticky">
+        <div class="container align-self-center">
+            <div class="mobile_menu d-lg-none d-block"></div>
+            <div class="main-nav d-none d-lg-block float-left">
+                <nav>
+                    <!--Desktop menu-->
+                    <ul class="main-menu d-none d-lg-inline font-small">
+
+                        <li> <a href="/Home/Index"><i class="elegant-icon icon_house_alt mr-5"></i>Trang chủ</a> </li>
+
+                        <li> <a href="/Forum/Index/1"><i class="elegant-icon icon_house_alt mr-5"></i>Diễn đàn</a> </li>
+
+
+                    </ul>
+                    <!--Mobile menu-->
+                    <ul id="mobile-menu" class="d-block d-lg-none text-muted">
+                        <li class="menu-item-has-children">
+                            <a href="index.html.htm">Home</a>
+                            <ul class="sub-menu text-muted font-small">
+                                <li><a href="index.html.htm">Home default</a></li>
+                                <li><a href="home-2.html.htm">Homepage 2</a></li>
+                                <li><a href="home-3.html.htm">Homepage 3</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="#">Pages</a>
+                            <ul class="sub-menu font-small">
+                                <li><a href="page-about.html.htm">About</a></li>
+                                <li><a href="page-contact.html.htm">Contact</a></li>
+                                <li><a href="page-typography.html.htm">Typography</a></li>
+                                <li><a href="page-register.html.htm">Register</a></li>
+                                <li><a href="page-login.html.htm">Login</a></li>
+                                <li><a href="page-search.html.htm">Search</a></li>
+                                <li><a href="page-author.html.htm">Author</a></li>
+                                <li><a href="page-404.html.htm">404 page</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="#">Category</a>
+                            <ul class="sub-menu font-small">
+                                <li><a href="category-list.html.htm">List layout</a></li>
+                                <li><a href="category-grid.html.htm">Grid layout</a></li>
+                                <li><a href="category-masonry.html.htm">Masonry layout</a></li>
+                                <li><a href="category-big.html.htm">Big layout</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="#">Single post</a>
+                            <ul class="sub-menu font-small">
+                                <li><a href="single.html.htm">Default</a></li>
+                                <li><a href="single-2.html.htm">Big image</a></li>
+                                <li><a href="single-3.html.htm">Left image</a></li>
+                                <li><a href="single-4.html.htm">With sidebar</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="float-right header-tools text-muted font-small">
+                <ul class="header-social-network d-inline-block list-inline mr-15">
+                    <li class="list-inline-item"><a class="social-icon fb text-xs-center" target="_blank" href="#"><i class="elegant-icon social_facebook"></i></a></li>
+                    <li class="list-inline-item"><a class="social-icon tw text-xs-center" target="_blank" href="#"><i class="elegant-icon social_twitter "></i></a></li>
+                    <li class="list-inline-item"><a class="social-icon pt text-xs-center" target="_blank" href="#"><i class="elegant-icon social_pinterest "></i></a></li>
+                </ul>
+                @* <div class="off-canvas-toggle-cover d-inline-block">
+                        <div class="off-canvas-toggle hidden d-inline-block" id="off-canvas-toggle">
+                            <span></span>
+                        </div>
+                    </div>*@
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!--Start search form-->
+    <div class="main-search-form">
+        <div class="container">
+            <div class=" pt-50 pb-50 ">
+                <div class="row mb-20">
+
+                    <div class="col-12 align-self-center main-search-form-cover m-auto">
+                        <p class="text-center"><span class="search-text-bg">Search</span></p>
+                        <form action="#" class="search-header">
+                            <div class="input-group w-100">
+                                <input type="text" class="form-control" placeholder="Search stories, places and people">
+                                <div class="input-group-append">
+                                    <button class="btn btn-search bg-white" type="submit">
+                                        <i class="elegant-icon icon_search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+

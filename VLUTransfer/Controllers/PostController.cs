@@ -7,26 +7,24 @@ using VLUTransfer.Daos;
 
 namespace VLUTransfer.Controllers
 {
-    public class HomeController : Controller
+    public class PostController : Controller
     {
         PostDao postDao = new PostDao();
+        // GET: Post
         public ActionResult Index()
         {
-            ViewBag.posts = postDao.GetPosts();
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Detail(int id)
         {
-            ViewBag.Message = "Your application description page.";
-
+            ViewBag.Detail = postDao.GetDetail(id);
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult AddPost(string mess)
         {
-            ViewBag.Message = "Your contact page.";
-
+            ViewBag.Msg = mess;
             return View();
         }
     }

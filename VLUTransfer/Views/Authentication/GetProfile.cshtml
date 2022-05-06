@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "GetProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<main class="bg-grey pt-80 pb-50">
+    @if (ViewBag.message == "1")
+    {
+
+        <div class="toast" data-delay="1000" style="position:fixed; top: 100PX; left: 10PX;z-index: 2000;width: 300px">
+            <script>
+                swal({
+                    title: 'Cập nhật thông tin thành công',
+                    /* text: 'Redirecting...', */
+                    icon: 'success',
+                    timer: 3000,
+                    buttons: true,
+                    type: 'success'
+                })
+            </script>
+        </div>
+    }
+    @if (ViewBag.message == "2")
+    {
+
+        <div class="toast" data-delay="1000" style="position:fixed; top: 100PX; left: 10PX;z-index: 2000;width: 300px">
+            <script>
+                swal({
+                    title: 'Hai mật khẩu không trùng khớp',
+                    /* text: 'Redirecting...', */
+                    icon: 'error',
+                    timer: 3000,
+                    buttons: true,
+                    type: 'error'
+                })
+            </script>
+        </div>
+    }
+    @if (ViewBag.message == "3")
+    {
+
+        <div class="toast" data-delay="1000" style="position:fixed; top: 100PX; left: 10PX;z-index: 2000;width: 300px">
+            <script>
+                swal({
+                    title: 'Email này đã tồn tại',
+                    /* text: 'Redirecting...', */
+                    icon: 'error',
+                    timer: 3000,
+                    buttons: true,
+                    type: 'success'
+                })
+            </script>
+        </div>
+    }
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-md-10">
+                <div class="login_wrap widget-taber-content p-30 bg-white border-radius-10">
+                    <div class="padding_eight_all bg-white">
+                        <div class="heading_s1 text-center">
+                            <h3 class="mb-30 font-weight-900">Thông tin cá nhân</h3>
+                        </div>
+                        <form action="/Authentication/UpdateProfile" method="post">
+
+                            <div class="form-group">
+                                <input type="text" required="" class="form-control" value="@ViewBag.user.email" readonly name="email" placeholder="Email">
+                                <input type="hidden" required="" class="form-control" value="@ViewBag.user.userId" name="userId">
+                                <input type="hidden" required="" class="form-control" value="@ViewBag.user.status" name="status">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" required="" class="form-control" value="@ViewBag.user.fullName" name="fullName" placeholder="Họ và tên">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" required="" class="form-control" value="@ViewBag.user.phoneNumber" name="phoneNumber" placeholder="Số điện thoại">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" required="" class="form-control" value="@ViewBag.user.address" name="address" placeholder="Địa chỉ">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" required="" class="form-control" value="@ViewBag.user.studentId" readonly name="studentId" placeholder="Mã sinh viên">
+                            </div>
+
+                          
+                            <div class="form-group">
+                                <button type="submit" class="button button-contactForm btn-block">Cập nhật</button>
+                            </div>
+                        </form>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+

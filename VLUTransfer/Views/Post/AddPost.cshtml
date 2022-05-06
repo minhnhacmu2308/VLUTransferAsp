@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "AddPost";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{ var userInfomatiom = (VLUTransfer.Models.User)Session["User"]; }
+<main class="bg-grey pt-80 pb-50">
+    <div class="container">
+        @if (ViewBag.Msg != null)
+        {
+            <div class="alert alert-success">
+                <strong>Thành công</strong>
+            </div>
+        }
+        <div class="row justify-content-center">
+            <div class="container single-content">
+                <div class="entry-wraper">
+                    <div class="heading_s1 text-center">
+                        <h3 class="mb-30 font-weight-900">Đăng bài viết</h3>
+                    </div>
+                    <hr class="wp-block-separator is-style-wide">
+                    <form class="form-contact comment_form" enctype="multipart/form-data" action="/Forum/PostAdd" method="post" id="commentForm">
+                        <input type="hidden" name="nguoidung" value="@userInfomatiom.userId" />
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input class="form-control" name="title" id="website" type="text" placeholder="Tiêu đề" required>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input class="form-control" name="price" id="website" type="text" placeholder="Giá" required>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input class="" name="image" id="website" type="file" placeholder="Tiêu đề" required>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <textarea class="form-control w-100" name="description" id="comment" cols="30" rows="9" placeholder="Message"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="button button-contactForm btn-block">Đăng bài</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+    CKEDITOR.replace("comment");
+</script>
+

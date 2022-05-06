@@ -132,7 +132,10 @@
     <Compile Include="Controllers\Admin\AdminModulesController.cs" />
     <Compile Include="Controllers\Admin\AdminPostController.cs" />
     <Compile Include="Controllers\Admin\AdminUserController.cs" />
+    <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ModulesController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Daos\PostDao.cs" />
     <Compile Include="Daos\RegisterDao.cs" />
     <Compile Include="Daos\UserDao.cs" />
@@ -840,10 +843,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\AdminModules\Header.cshtml" />
     <Content Include="Views\AdminModules\Footer.cshtml" />
@@ -852,6 +851,17 @@
     <Content Include="Views\AdminLogin\Index.cshtml" />
     <Content Include="Views\AdminPost\Index.cshtml" />
     <Content Include="Views\AdminUser\Index.cshtml" />
+    <Content Include="Views\Authentication\Login.cshtml" />
+    <Content Include="Views\Authentication\Register.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Modules\Footer.cshtml" />
+    <Content Include="Views\Modules\Header.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Authentication\GetProfile.cshtml" />
+    <Content Include="Views\Post\Detail.cshtml" />
+    <Content Include="Views\Post\AddPost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

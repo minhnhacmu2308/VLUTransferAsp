@@ -38,5 +38,10 @@ namespace VLUTransfer.Daos
         {
             return myDb.posts.Where(x => x.status == status).ToList();
         }
+
+        public List<Post> GetPosts()
+        {
+            return myDb.posts.ToList();
+        }
     }
 }
