@@ -18,6 +18,22 @@ namespace VLUTransfer
               defaults: new { controller = "Post", action = "Index", id = UrlParameter.Optional }
              );
             routes.MapRoute(
+            name: "User Post",
+            url: "user/post/{id}/{page}",
+            defaults: new { controller = "Post", action = "UserPost", id = UrlParameter.Optional }
+        );
+
+            routes.MapRoute(
+            name: "User Register",
+            url: "user/register/{id}/{page}",
+            defaults: new { controller = "Post", action = "UserRegister", id = UrlParameter.Optional }
+        );
+            routes.MapRoute(
+            name: "Post Register",
+            url: "post/register/{id}/{page}",
+            defaults: new { controller = "Post", action = "PostRegister", id = UrlParameter.Optional }
+        );
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

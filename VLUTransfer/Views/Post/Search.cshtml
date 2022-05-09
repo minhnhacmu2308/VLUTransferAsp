@@ -5,101 +5,101 @@
 }
 
 <main>
-    <!--archive header-->
-    <div class="archive-header pt-50">
-        <div class="container">
-            <h5 class="font-weight-900">Từ khóa:</h5> <span>@ViewBag.name</span>
-
-            <div class="bt-1 border-color-1 mt-30 mb-50"></div>
-        </div>
-    </div>
-    <div class="pb-50">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="post-module-3">
-                        <div class="loop-list loop-list-style-1">
-                            @if(ViewBag.List.Count == 0)
-                            {
-                                <h5 style="color:red">Không tìm thấy bài đăng nào</h5>
-                            }
-                            @foreach (var item in ViewBag.List)
-                            {
-                                <article class="hover-up-2 transition-normal wow fadeInUp animated">
-                                    <div class="row mb-40 list-style-2">
-
-                                        <div class="col-md-12 align-self-center">
-                                            <div class="post-content">
-
-                                                <h5 class="post-title font-weight-900 mb-20">
-                                                    <a href="/Post/Detail/@item.postId">@item.title</a>
-
-                                                    <span class="post-format-icon"><i class="elegant-icon icon_star_alt"></i></span>
-                                                </h5>
-                                                <figure class="image mb-30 m-auto text-center border-radius-10">
-                                                    <img class="border-radius-10" src="~/Content/images/@item.image" alt="post-title">
-                                                </figure>
-                                                <p>@item.price VNĐ</p>
-                                                <div class="post-excerpt mb-25 font-small text-muted">
-                                                    <div class="a" style="white-space: nowrap; width: 600px; height:30px; overflow: hidden; text-overflow: ellipsis;">@Html.Raw(item.description)</div>
-                                                    <div class="entry-meta meta-1 float-left font-x-small text-uppercase mt-3">
-                                                        <span class="post-on">Được đăng bởi : <strong>@item.User.fullName</strong> &nbsp;&nbsp; @item.createdAt </span>
-
-                                                        <a href="/post/detail/@item.postId" class="btn btn-primary btn-sm " style="margin-left: 680px;"><span style="color:black">Chi tiết</span></a>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                </article>
-                            }
-
-
-                        </div>
+    <div class="container">
+        <div class="hot-tags pt-30 pb-30 font-small align-self-center">
+            <div class="widget-header-3">
+                <div class="row align-self-center">
+                    <div class="col-md-4 align-self-center">
+                        <h5><span class="widget-title">Danh sách tìm kiếm:</span> </h5>
                     </div>
-                    <div class="pagination-area mb-30 wow fadeInUp animated">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination justify-content-start">
-                                @if (ViewBag.tag > 1)
-                                {
-                                    int b = ViewBag.tag - 1;
-                                    <li class="page-item"><a class="page-link" href="/Post/Search?page=@b&name=@ViewBag.name"><i class="elegant-icon arrow_left"></i></a></li>
-                                }
-                                else
-                                {
-                                    <li></li>
-                                }
 
-                                @for (var i = 1; i <= ViewBag.pageSize; i++)
-                                {
-                                    if (ViewBag.tag == i)
-                                    {
-                                        <li class="page-item active"><a class="page-link" href="/Post/Search?page=@i&name=@ViewBag.name">@i</a></li>
-                                    }
-                                    else
-                                    {
-                                        <li class="page-item "><a class="page-link" href="/Post/Search?page=@i&name=@ViewBag.name">@i</a></li>
-                                    }
-
-                                }
-                                @if (ViewBag.tag < ViewBag.pageSize)
-                                {
-                                    int a = ViewBag.tag + 1;
-                                    <li class="page-item"><a class="page-link" href="/Post/Search?page=@a&name=@ViewBag.name"><i class="elegant-icon arrow_right"></i></a></li>
-                                }
-                                else
-                                {
-                                    <li></li>
-                                }
-
-                            </ul>
-                        </nav>
-                    </div>
                 </div>
+            </div>
+        </div>
+        <div class="loop-grid mb-30">
+            <div class="row">
+                @if (ViewBag.List.Count == 0)
+                {
+                    <h5 style="color:red">Không tìm thấy bài đăng nào</h5>
+                }
+                @foreach (var item in ViewBag.List)
+                {
+                    <article class="col-lg-4 col-md-6 mb-30 wow fadeInUp animated" data-wow-delay="0.2s">
+                        <div class="post-card-1 border-radius-10 hover-up">
+                            <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url(/Content/images/@item.image )">
+                                <a class="img-link" href="/Post/Detail/@item.postId"></a>
+                                <span class="top-right-icon bg-success"><i class="elegant-icon icon_camera_alt"></i></span>
+                                <ul class="social-share">
+                                    <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
+                                    <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>
+                                    <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>
+                                    <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="post-content p-30">
 
+                                <div class="d-flex post-card-content">
+                                    <h5 class="post-title font-weight-900">
+                                        <a href="/Post/Detail/@item.postId">@item.title</a>
+                                    </h5>
+                                    <div class="entry-meta meta-0 font-small">
+                                        <a href="/user/post/@item.userId/1"><span class="post-cat text-primary">Người đăng : @item.User.fullName</span></a>
+                                    </div>
+                                    <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
+                                        <span class="post-on">Giá : @string.Format("{0:0,0}", item.price) <span>VNĐ</span></span>
+                                        <span class="post-on">Ngày đăng : @item.createdAt</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                }
+
+                <!--bài viết mới nhất-->
+
+
+            </div>
+            <div class="pagination-area mb-30 wow fadeInUp animated">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-start">
+                        @if (ViewBag.tag > 1)
+                        {
+                            int b = ViewBag.tag - 1;
+                            <li class="page-item"><a class="page-link" href="/Post/Search?page=@b&name=@ViewBag.name"><i class="elegant-icon arrow_left"></i></a></li>
+                        }
+                        else
+                        {
+                            <li></li>
+                        }
+
+                        @for (var i = 1; i <= ViewBag.pageSize; i++)
+                        {
+                            if (ViewBag.tag == i)
+                            {
+                                <li class="page-item active"><a class="page-link" href="/Post/Search?page=@i&name=@ViewBag.name">@i</a></li>
+                            }
+                            else
+                            {
+                                <li class="page-item "><a class="page-link" href="/Post/Search?page=@i&name=@ViewBag.name">@i</a></li>
+                            }
+
+                        }
+                        @if (ViewBag.tag < ViewBag.pageSize)
+                        {
+                            int a = ViewBag.tag + 1;
+                            <li class="page-item"><a class="page-link" href="/Post/Search?page=@a&name=@ViewBag.name"><i class="elegant-icon arrow_right"></i></a></li>
+                        }
+                        else
+                        {
+                            <li></li>
+                        }
+
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>
+    <!--archive header-->
 </main>
 
 

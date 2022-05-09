@@ -60,7 +60,7 @@
             @post.title
         </h1>
         <figure class="image mb-30 m-auto text-center border-radius-10">
-            <img class="border-radius-10" src="~/Content/images/@post.image" alt="post-title">
+            <img style="width: 90% !important" class="border-radius-10" src="~/Content/images/@post.image" alt="post-title">
         </figure>
         <div class="row">
             <div class="col-md-6">
@@ -69,8 +69,6 @@
                         <a class="author-avatar" href="#"><img class="img-circle" src="/Content/assets/imgs/authors/author-3.jpg" alt=""></a>
                         By <a href="/user/post/@post.User.userId/1"><span class="author-name font-weight-bold">@post.User.fullName</span></a>
                     </p>
-                    <span class="mr-10"> @post.createdAt</span>
-
                 </div>
             </div>
             <div class="col-md-6 text-right d-none d-md-inline">
@@ -102,7 +100,9 @@
     <!--end single header-->
     <!--figure-->
     <article class="entry-wraper mb-50">
-        <p>@post.price VNĐ</p>
+        <p>Giá tiền : @string.Format("{0:0,0}", post.price) <span>VNĐ</span></p>
+        <p>Ngày đăng : @post.createdAt</p>
+        <p>Mô tả : </p>
         @Html.Raw(post.description)
 
         <!--related posts-->

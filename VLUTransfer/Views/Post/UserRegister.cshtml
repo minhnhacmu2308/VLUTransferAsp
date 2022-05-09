@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "UserRegister";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    @{ var user = ViewBag.User;}
+    @{ var userInfomatiom = (VLUTransfer.Models.User)Session["User"]; }
+    <!--archive header-->
+    <div class="archive-header pt-50">
+        <div class="container">
+            <h2 class="font-weight-900">Danh sách sản phẩm đã đăng ký mua hoặc nhận</h2>
+
+            <div class="bt-1 border-color-1 mt-30 mb-50"></div>
+        </div>
+    </div>
+    <div class="pb-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="post-module-3">
+                        <div class="loop-list loop-list-style-1">
+                            @foreach (var item in ViewBag.List)
+                            {
+                                
+                                        <article class="hover-up-2 transition-normal wow fadeInUp animated">
+                                            <div class="row mb-40 list-style-2">
+                                                <div class="col-md-4">
+                                                    <div class="post-thumb position-relative border-radius-5">
+                                                        <div class="img-hover-slide border-radius-5 position-relative" style="background-image: url(/Content/images/@item.Post.image)">
+                                                            <a class="img-link" href="/post/detail/@item.Post.postId"></a>
+                                                        </div>
+                                                        <ul class="social-share">
+                                                            <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
+                                                            <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>
+                                                            <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>
+                                                            <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8 align-self-center">
+                                                    <div class="post-content">
+
+                                                        <h5 class="post-title font-weight-900 mb-20">
+                                                            <a href="/post/detail/@item.Post.postId">@item.Post.title</a>
+                                                            <span class="post-format-icon"><i class="elegant-icon icon_star_alt"></i></span>
+                                                        </h5>
+                                                        <div class="entry-meta meta-0 font-small mb-10">
+                                                            <a href="#"><span class="post-cat text-primary">By @item.Post.User.fullName</span></a>
+                                                        </div>
+                                                        <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
+                                                            <span class="post-on">@string.Format("{0:0,0}", item.Post.price) <span>VNĐ</span></span>
+                                                        </div>
+                                                        <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
+                                                            <span class="post-on">Ngày đăng ký : @item.dateRegister</span>
+                                                            @if (item.status == 0)
+                                                            {
+                                                                <button style="margin-left: 180px;" type="button" class="btn btn-danger btn-sm ">Đợi duyệt</button>
+                                                            }
+                                                            else if (item.status == 1)
+                                                            {
+                                                                <button style="margin-left: 180px;" type="button" class="btn btn-success btn-sm ">Đã được duyệt</button>
+                                                            }
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                            }
+
+                        </div>
+                    </div>
+                    <div class="pagination-area mb-30 wow fadeInUp animated">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-start">
+                                @if (ViewBag.tag > 1)
+                                {
+                                    int b = ViewBag.tag - 1;
+                                    <li class="page-item"><a class="page-link" href="/user/register/@user.userId/@b"><i class="elegant-icon arrow_left"></i></a></li>
+                                }
+                                else
+                                {
+                                    <li></li>
+                                }
+
+                                @for (var i = 1; i <= ViewBag.pageSize; i++)
+                                {
+                                    if (ViewBag.tag == i)
+                                    {
+                                        <li class="page-item active"><a class="page-link" href="/user/register/@user.userId/@i">@i</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="page-item "><a class="page-link" href="/user/register/@user.userId/@i">@i</a></li>
+                                    }
+
+                                }
+                                @if (ViewBag.tag < ViewBag.pageSize)
+                                {
+                                    int a = ViewBag.tag + 1;
+                                    <li class="page-item"><a class="page-link" href="/user/register/@user.userId/@a"><i class="elegant-icon arrow_right"></i></a></li>
+                                }
+                                else
+                                {
+                                    <li></li>
+                                }
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+

@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row pt-20 pb-20">
                 <div class="col-md-3 col-xs-6">
-                    <a href="/Home/Index"><img class="logo" src="~/Content/assets/imgs/theme/logo.png" alt=""></a>
+                    <a href="/Home/Index"><img class="logo" src="https://upload.wikimedia.org/wikipedia/vi/thumb/a/a0/Logo-vlu-2018-wiki.jpg/1200px-Logo-vlu-2018-wiki.jpg" alt="" style="height : 50px"></a>
                 </div>
                 <div class="col-md-9 col-xs-6 text-right header-top-right ">
 
@@ -19,9 +19,10 @@
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item text-black ml-15 font-small " href="/Authentication/GetProfile/@userInfomatiom.userId"> @userInfomatiom.email</a>
+                                <a class="dropdown-item text-black ml-15 font-small " href="/Authentication/GetProfile/@userInfomatiom.userId"> Hồ sơ</a>
                                 <a class="dropdown-item text-black ml-15 font-small " href="/Post/AddPost">Đăng bài</a>
-                                <a class="dropdown-item text-black ml-15 font-small " href="/user/post/@userInfomatiom.userId/1">Bài viết</a>
+                                <a class="dropdown-item text-black ml-15 font-small " href="/user/post/@userInfomatiom.userId/1">Bài đăng cá nhân</a>
+                                <a class="dropdown-item text-black ml-15 font-small " href="/user/register/@userInfomatiom.userId/1">Sản phẩm đã đăng ký</a>
                             </div>
                         </div>
                         <a href="/Authentication/Logout" class="btn btn-radius bg-primary text-white ml-15 font-small box-shadow" style="width:100px">Đăng xuất</a>
@@ -46,7 +47,7 @@
 
                         <li> <a href="/Home/Index"><i class="elegant-icon icon_house_alt mr-5"></i>Trang chủ</a> </li>
 
-                        <li> <a href="/Post/Index/1"><i class="elegant-icon icon_house_alt mr-5"></i>Bài đăng</a> </li>
+                       @* <li> <a href="/Post/Index/1"><i class="elegant-icon icon_house_alt mr-5"></i>Bài đăng</a> </li>*@
 
 
                     </ul>

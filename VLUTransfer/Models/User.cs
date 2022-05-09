@@ -12,7 +12,9 @@ namespace VLUTransfer.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int userId { get; set; }
-        public int studentId { get; set; }
+
+        [StringLength(255)]
+        public string studentId { get; set; }
 
         [StringLength(255)]
         [Required]

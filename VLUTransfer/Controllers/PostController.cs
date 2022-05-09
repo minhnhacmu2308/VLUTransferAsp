@@ -12,6 +12,7 @@ namespace VLUTransfer.Controllers
     {
         PostDao postDao = new PostDao();
         RegisterDao registerDao = new RegisterDao();
+        UserDao userDao = new UserDao();
         // GET: Post
         public ActionResult Index(int page)
         {
@@ -103,6 +104,52 @@ namespace VLUTransfer.Controllers
                 }
                
             }
+        }
+        public ActionResult UserPost(int id, int page)
+        {
+            if (page == 0)
+            {
+                page = 1;
+            }
+            ViewBag.List = postDao.getPostUser(id, page, 4);
+            ViewBag.tag = page;
+            ViewBag.pageSize = postDao.getNumberPostUser(id);
+            ViewBag.User = userDao.getUserById(id);
+            return View();
+        }
+
+        public ActionResult UserRegister(int id, int page)
+        {
+            if (page == 0)
+            {
+                page = 1;
+            }
+            ViewBag.List = postDao.getPostUserRegister(id, page, 4);
+            ViewBag.tag = page;
+            ViewBag.pageSize = postDao.getNumberPostUserRegister(id);
+            ViewBag.User = userDao.getUserById(id);
+            return View();
+        }
+
+        public ActionResult PostRegister(int id, int page)
+        {
+            if (page == 0)
+            {
+                page = 1;
+            }
+            ViewBag.List = postDao.getPostRegister(id, page, 4);
+            ViewBag.tag = page;
+            ViewBag.pageSize = postDao.getNumberPostRegister(id);
+            ViewBag.Post = postDao.GetDetail(id);
+            return View();
+        }
+
+        public ActionResult Approve(int id)
+        {
+            var register = postDao.getRe(id);
+            postDao.approve(id);
+            string url = "/post/register/" + register.postId + "/1";
+            return Redirect(url);
         }
     }
 }
