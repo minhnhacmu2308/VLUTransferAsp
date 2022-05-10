@@ -5,7 +5,7 @@ Hiển thị danh sách bài đăng (duyệt bài,chặn bài)
 Hiển thị danh sách tài khoản (xác thực tài khoản, chặn tài khoản)
 Thống kê : số lượng bài được duyệt, chờ duyệt, chặn,số lượng tài khoản đang đợi xác thực,đã xác thực, bị chặn
 Người dùng : 
-Đăng ký (đợi xác thực từ admin) (lỗi mã sinh viên)
+Đăng ký (đợi xác thực từ admin) 
 Đăng nhập(done)
 Đăng xuất(done)
 Quản lý thông tin cá nhân (xem và cập nhập)(done)
@@ -20,5 +20,3 @@ Hiển thị danh sách những người đã đăng ký mua/nhận trên bài �
 Duyệt/Không duyệt người đăng ký(done)
 ---------Tên web :VLU Transfer
 Giá 3trieu : ASP .NET MVC, SQl server, Deadline : tối thứ 6 6/5, trưa thứ 7 7/5
-Note : 0 : đợi xác thực, 1 : đang hoạt động, 2 : bị chặn -> user
-0 : đợi duyệt, 1 : đang hoạt động, 2: bị chặn -> bài viết 
