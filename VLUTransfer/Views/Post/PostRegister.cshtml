@@ -19,7 +19,7 @@
     <div class="pb-50">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-6">
                     <div class="post-module-3">
                         <div class="loop-list loop-list-style-1">
                             @foreach (var item in ViewBag.List)
@@ -112,6 +112,20 @@
 
                             </ul>
                         </nav>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="widget-area">
+                        <div class="sidebar-widget widget-about mb-50 pt-30 pr-30 pb-30 pl-30 bg-white border-radius-5 has-border  wow fadeInUp animated">
+                            <img class="mb-25" src="/Content/images/@post.image" alt="">
+                            <h5 class="mb-20">@post.title</h5>
+                            <h5 class="mb-20">@string.Format("{0:0,0}", post.price) <span>VNĐ</span></h5>
+                            <h5 class="mb-20">@post.createdAt</h5>
+                            <a href="/post/detail/@post.postId">Xem chi tiết </a>
+                        </div>
+
+
+
                     </div>
                 </div>
             </div>

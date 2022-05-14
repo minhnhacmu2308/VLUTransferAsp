@@ -28,9 +28,11 @@
                     <div class="heading_s1 text-center">
                         <h3 class="mb-30 font-weight-900">Đăng bài viết</h3>
                     </div>
+                    <span style="color:red;">*Chỉ cho phép đăng 1 sản phẩm cho 1 lần đăng !</span>
                     <hr class="wp-block-separator is-style-wide">
+
                     <form class="form-contact comment_form" enctype="multipart/form-data" action="/Post/PostAdd" method="post" id="commentForm">
-                      
+
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
@@ -50,7 +52,9 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <textarea class="form-control w-100" name="description" id="comment" cols="30" rows="9" placeholder="Message"></textarea>
+                                    <textarea class="form-control w-100" name="description" id="comment" cols="30" rows="9">Mô tả chi tiết :<br /> Tình trạng sử dụng :<br />
+ 
+					Kích cỡ (nếu có) :<br />Nhãn hiệu (nếu có): </textarea>
                                 </div>
                             </div>
                         </div>

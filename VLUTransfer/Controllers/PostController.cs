@@ -147,6 +147,9 @@ namespace VLUTransfer.Controllers
         public ActionResult Approve(int id)
         {
             var register = postDao.getRe(id);
+            var post = postDao.GetDetail(register.postId);
+            post.status = 2;
+            postDao.update(post);
             postDao.approve(id);
             string url = "/post/register/" + register.postId + "/1";
             return Redirect(url);
